@@ -20,10 +20,10 @@ const signIn = (data) => {
   })
 }
 
-const signOut = (data) => {
+const signOut = () => {
   // console.log(data)
   return $.ajax({
-    url: 'https://library-express-api-development.herokuapp.com/sign-out',
+    url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-out',
     method: 'DELETE',
     headers: {
       Authorization: 'Bearer ' + store.token
@@ -31,8 +31,18 @@ const signOut = (data) => {
   })
 }
 
+const newGame = (data) => {
+  return $.ajax({
+    url: 'https://tic-tac-toe-api-development.herokuapp.com/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
 module.exports = {
   signUp,
   signIn,
-  signOut
+  signOut,
+  newGame
 }

@@ -28,16 +28,20 @@ const onSignIn = (e) => {
     .then(ui.onSignInSuccess)
     .catch(ui.onFailure)
 }
-const onSignOut = (e) => {
-  e.preventDefault()
-
-  api.signOut(e)
+const onSignOut = () => {
+  api.signOut()
     .then(ui.onSignOutSuccess)
     .catch(ui.onFailure)
 }
 
+const onNewGame = (e) => {
+  api.newGame()
+    .then(ui.onNewGameSuccess)
+    .catch(ui.onNewGameFailure)
+}
 module.exports = {
   onSignUp,
   onSignIn,
-  onSignOut
+  onSignOut,
+  onNewGame
 }

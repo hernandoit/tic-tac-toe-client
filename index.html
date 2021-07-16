@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,10 +12,12 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Tic Tac Toe</h1>
 
+<!-- default messaging -->
       <p id="message"></p>
 
+<!-- SIGN UP FORM -->
       <form id="sign-up">
         <h3>Sign Up</h3>
         <label>Email</label>
@@ -27,6 +29,7 @@
         <button type="submit">Sign Up</button>
       </form>
 
+<!-- SIGN IN FORM -->
       <form id="sign-in">
         <h3>Sign In</h3>
         <label>Email</label>
@@ -36,8 +39,36 @@
         <button type="submit">Sign In</button>
       </form>
 
-      <form id="sign-out">
-        <button>Sign Out</button>
-      </form>
+<!-- SIGN OUT BUTTON -->
+        <button hidden id="sign-out">Sign Out</button>
+
+      <!-- NEW GAME BUTTON -->
+      <button hidden id="new-game" type="submit" >New Game</button>
+
+<!-- GAME BOARD -->
+<section hidden class="game-board">
+  <button id="btn-x">X</button>
+  <button id="btn-o">O</button>
+</section>
+<section hidden class="game-board">
+
+  <!-- top row -->
+  <div class="div-box" id="top-left"></div>
+  <div class="div-box" id="top-mid"></div>
+  <div class="div-box" id="top-right"></div>
+
+  <!-- middle row -->
+  <div class="div-box" id="mid-left"></div>
+  <div class="div-box" id="mid"></div>
+  <div class="div-box" id="mid-right"></div>
+
+  <!-- bottom row -->
+  <div class="div-box" id="bottom-left"></div>
+  <div class="div-box" id="bottom-mid"></div>
+  <div class="div-box" id="bottom-right"></div>
+</section>
+<section hidden class="game-board">
+  <button id="btn-reset">reset-board</button>
+</section>
     </body>
 </html>
