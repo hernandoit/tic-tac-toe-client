@@ -1,5 +1,5 @@
 ## `Wire Frame`
-[Wire Frame Layout](https://imgur.com/ipFv5ia)
+[Wire Frame Layout](https://i.imgur.com/xikX6wt.png)
 
 ## `User Stories`
 
