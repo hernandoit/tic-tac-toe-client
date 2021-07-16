@@ -5,5 +5,5 @@
 // require('./example')
 
 $(() => {
-  // your JS code goes here
+$('#sign-up').on('submit', abc.123)
 })
