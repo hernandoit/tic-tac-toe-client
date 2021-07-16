@@ -13,7 +13,9 @@
     </head>
     <body>
       <h1>Browser Template</h1>
+
       <p id="message"></p>
+
       <form id="sign-up">
         <h3>Sign Up</h3>
         <label>Email</label>
@@ -22,7 +24,20 @@
         <input name="credentials[password]" type="password">
         <label>Password Confirmation</label>
         <input name="credentials[password_confirmation]" type="password">
-        <button>Sign Up</button>
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <form id="sign-in">
+        <h3>Sign In</h3>
+        <label>Email</label>
+        <input name="credentials[email]" type="email">
+        <label>Password</label>
+        <input name="credentials[password]" type="password">
+        <button type="submit">Sign In</button>
+      </form>
+
+      <form id="sign-out">
+        <button>Sign Out</button>
       </form>
     </body>
 </html>
