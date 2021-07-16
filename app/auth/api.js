@@ -5,7 +5,7 @@ const store = require('./../store')
 const signUp = (data) => {
   // console.log(data)
   return $.ajax({
-    url: 'https://library-express-api.herokuapp.com/sign-up',
+    url: 'https://tic-tac-toe-api.herokuapp.com/sign-up',
     method: 'POST',
     data
   })
