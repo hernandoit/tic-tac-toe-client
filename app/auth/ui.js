@@ -28,7 +28,7 @@ const onSignInSuccess = (response) => {
 }
 
 const onSignOutSuccess = () => {
-  $('#message').text('')
+  $('#message').text('You have been successfully logout')
   $('#sign-in').show()
   $('#sign-up').show()
   $('#sign-out').hide()
@@ -42,6 +42,7 @@ const onNewGameSuccess = (response) => {
   console.log(store.token)
   $('.game-board').show()
 }
+
 module.exports = {
   onFailure,
   onSignUpSuccess,

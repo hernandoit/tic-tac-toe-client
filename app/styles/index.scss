@@ -8,7 +8,9 @@ body {
   color: #ffffff;
   text-align: center;
 }
-
+form {
+ //something here
+}
 .div-box {
   background-color: #31343a;
   border: solid;
@@ -55,6 +57,10 @@ body {
     0%{background-position:0% 82%}
     50%{background-position:100% 19%}
     100%{background-position:0% 82%}
+}
+
+.game-choice-btn{
+ // something here
 }
 
 #top-left{
