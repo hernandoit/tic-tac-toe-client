@@ -1,10 +1,13 @@
 # Tic Tac Toe
 
-## `Wire Frame`
+This is a tic-tac-toe game that has user authentication build into it using a prebuilt API to test against.
 
-[Wire Frame Layout](https://i.imgur.com/xikX6wt.png)
+## `Important Links`
+- [Deployed Client](https://example.com/)
 
-## `User Stories`
+## `Planning`
+
+#### `User Stories`
 
 - As a end user, I want to sign up so that I can have an account
 - As a end user, I want to sign in so that I can have access to my account
@@ -15,8 +18,6 @@
 - As a end user, I want to know if i won/draw so that I can know the outcome of my match
 - As a end user, I want to let the board be locked once a game is over so that can be prompted to play another game
 
-## `Description`
-this app does something amazing!
+#### Wireframe
 
-## `Production Server`
-[Production Server Link](https://example.com/)
+[Wire Frame Layout](https://i.imgur.com/xikX6wt.png)
