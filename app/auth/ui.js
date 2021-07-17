@@ -1,8 +1,8 @@
 'use strict'
 const store = require('./../store')
 
-const onFailure = () => {
-  $('#message').text('failure')
+const onFailure = (response) => {
+  $('#message').text('error')
   $('#sign-up').trigger('reset')
   $('.game-board').hide()
 }
@@ -28,15 +28,18 @@ const onSignInSuccess = (response) => {
 }
 
 const onSignOutSuccess = () => {
-  // $('#message').text(`$as been signed out`)
+  $('#message').text('')
   $('#sign-in').show()
   $('#sign-up').show()
   $('#sign-out').hide()
   $('.game-board').hide()
+  $('#new-game').hide()
 }
 
 const onNewGameSuccess = (response) => {
   console.log(response)
+  store.token = response.user.token
+  console.log(store.token)
   $('.game-board').show()
 }
 module.exports = {

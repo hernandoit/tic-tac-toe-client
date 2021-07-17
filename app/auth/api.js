@@ -34,9 +34,9 @@ const signOut = () => {
 const newGame = (data) => {
   return $.ajax({
     url: 'https://tic-tac-toe-api-development.herokuapp.com/games',
-    method: 'GET',
+    method: 'POST',
     headers: {
-      Authorization: 'Bearer ' + store.user.token
+      Authorization: 'Bearer ' + store.token
     }
   })
 }
