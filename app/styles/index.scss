@@ -2,3 +2,125 @@
 h1 {
     font-family: 'Permanent Marker', cursive;
 }
+
+body {
+  background: #31343a;
+  color: #ffffff;
+  text-align: center;
+}
+
+.div-box {
+  background-color: #31343a;
+  border: solid;
+  border-color: #31343a;
+  font-size: 60px;
+  height: 100px;
+  width: 100px;
+}
+
+.game-board{
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Permanent Marker', cursive;
+  height: 358px;
+  width: 358px;
+  background: linear-gradient( 124deg, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000 );
+  -webkit-animation: rainbow 18s ease infinite;
+  -z-animation: rainbow 18s ease infinite;
+  -o-animation: rainbow 18s ease infinite;
+  animation: rainbow 18s ease infinite;
+  margin: auto;
+  background-size: 100% 1400%;
+}
+
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+
+@keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+
+#top-left{
+  margin: 0 10px 10px 0;
+}
+
+#top-mid{
+  margin: 0 10px 10px 10px;
+}
+
+#top-right{
+  margin: 0 0 10px 10px;
+}
+
+#mid-left{
+    align-self: center;
+}
+
+#mid{
+  margin: 10px 10px 10px 20px;
+}
+
+#mid-right{
+  margin: 10px 0 10px 10px;
+}
+
+#bottom-left{
+  margin: 10px 10px 0 0;
+}
+
+#bottom-mid{
+  margin: 10px 10px 0 10px;
+}
+
+#bottom-right{
+  margin: 10px 0 0 10px;
+}
+
+#btn-x, #btn-o {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 24px;
+  border: solid;
+  border-color: white;
+  border-radius: 10px;
+  background: #31343a;
+  color: #ffffff;
+  width: 80px;
+  padding: 5px;
+  margin: 10px 10px 40px 10px;
+}
+
+#btn-x:hover {
+  background: #ffffff;
+  color: #31343a;
+  border-color: #e60000;
+}
+
+#btn-o:hover {
+  background: #ffffff;
+  color: #31343a;
+  border-color: #e60000;
+}
+
+#btn-reset:hover {
+  background: #ffffff;
+  color: #31343a;
+  border-color: #e60000;
+  padding: 5px;
+}
