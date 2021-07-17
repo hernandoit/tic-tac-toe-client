@@ -3,7 +3,7 @@
 This is a tic-tac-toe game that has user authentication build into it using a prebuilt API to test against.
 
 ## `Important Links`
-- [Deployed Client](https://example.com/)
+- [Deployed Client](https://hernandoit.github.io/tic-tac-toe-client/)
 
 ## `Planning`
 
