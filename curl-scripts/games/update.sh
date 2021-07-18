@@ -2,12 +2,15 @@
 
  # development: 'https://tic-tac-toe-api-development.herokuapp.com'
 
-# EMAIL="a@a.info" PASSWORD="a" sh curl-scripts/sign-in.sh
+# TOKEN="need token from login" "a" sh curl-scripts/update.sh
 
-curl "https://tic-tac-toe-api-development.herokuapp.com/sign-in" \
+#!/bin/bash
+
+curl "https://tic-tac-toe-api-development.herokuapp.com/games/" \
   --include \
-  --request POST \
+  --request PATCH \
   --header "Content-Type: application/json" \
+  --header "Authorization: Bearer ${TOKEN}" \
   --data '{
     "credentials": {
       "email": "'"${EMAIL}"'",

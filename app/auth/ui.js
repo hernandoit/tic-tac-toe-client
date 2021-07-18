@@ -2,9 +2,9 @@
 const store = require('./../store')
 
 const onFailure = (response) => {
-  $('#message').text('error')
+  $('#message').text('error', response)
   $('#sign-up').trigger('reset')
-  $('.game-board').hide()
+  $('#game-board').hide()
 }
 
 const onSignUpSuccess = (response) => {
@@ -13,7 +13,7 @@ const onSignUpSuccess = (response) => {
   $('#sign-out').hide()
   $('#sign-in').show()
   $('#sign-up').hide()
-  $('.game-board').hide()
+  $('#game-board').hide()
 }
 
 const onSignInSuccess = (response) => {
@@ -23,7 +23,7 @@ const onSignInSuccess = (response) => {
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#sign-out').show()
-  $('.game-board').hide()
+  $('#game-board').hide()
   $('#new-game').show()
 }
 
@@ -32,15 +32,18 @@ const onSignOutSuccess = () => {
   $('#sign-in').show()
   $('#sign-up').show()
   $('#sign-out').hide()
-  $('.game-board').hide()
+  $('#game-board').hide()
   $('#new-game').hide()
 }
 
 const onNewGameSuccess = (response) => {
-  console.log(response)
   store.token = response.user.token
-  console.log(store.token)
-  $('.game-board').show()
+  $('#game-board').show()
+  // populate board logic
+  $('#created-book').html(`
+    <h3>Title: ${response.book.title}</h3>
+    <p>Author: ${response.book.author}</p>
+  `)
 }
 
 module.exports = {
