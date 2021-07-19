@@ -21,11 +21,11 @@
       <form id="sign-up">
         <h3>Sign Up</h3>
         <label>Email</label>
-        <input name="credentials[email]" type="email"></br>
+        <input name="credentials[email]" type="email">
         <label>Password</label>
-        <input name="credentials[password]" type="password"></br>
+        <input name="credentials[password]" type="password">
         <label>Password Confirmation</label>
-        <input name="credentials[password_confirmation]" type="password"></br>
+        <input name="credentials[password_confirmation]" type="password">
         <button type="submit">Sign Up</button>
       </form>
 
@@ -33,26 +33,27 @@
       <form id="sign-in">
         <h3>Sign In</h3>
         <label>Email</label>
-        <input name="credentials[email]" type="email"></br>
+        <input name="credentials[email]" type="email">
         <label>Password</label>
-        <input name="credentials[password]" type="password"></br>
+        <input name="credentials[password]" type="password">
         <button type="submit">Sign In</button>
       </form>
 
 <!-- SIGN OUT BUTTON -->
-        <button hidden id="sign-out">Sign Out</button>
+        <button id="sign-out">Sign Out</button>
 
       <!-- NEW GAME FORM -->
-      <form hidden id="new-game">
+      <form id="new-game">
         <h3>New Game?</h3>
-      <button>New Game</button>
+      <button type="submit">New Game</button>
       </form>
 <!-- GAME BOARD -->
-<section hidden class="game-choice-btn">
+<section id="game-choice-btn">
   <button id="btn-x">X</button>
   <button id="btn-o">O</button>
 </section>
-<section hidden id="game-board">
+
+<section id="game-board">
 
   <!-- top row -->
   <div data-cell-index="0" class="div-box" id="top-left"></div>
@@ -68,7 +69,7 @@
   <div data-cell-index="6" class="div-box" id="bottom-left"></div>
   <div data-cell-index="7" class="div-box" id="bottom-mid"></div>
   <div data-cell-index="8" class="div-box" id="bottom-right"></div>
-  </section>
+</section>
 
     </body>
 </html>

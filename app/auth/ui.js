@@ -2,9 +2,27 @@
 const store = require('./../store')
 
 const onFailure = (response) => {
-  $('#message').text('error', response)
+  // console.error(response)
+
   $('#sign-up').trigger('reset')
   $('#game-board').hide()
+
+  const signUpError = document.querySelector('#sign-up')
+  signUpError.addEventListener('click', () => {
+    $('#message').text('Sign Up Failed')
+  })
+  const signInError = document.querySelector('#sign-in')
+  signInError.addEventListener('click', () => {
+    $('#message').text('Sign In Failed')
+  })
+  const signOutError = document.querySelector('#sign-out')
+  signOutError.addEventListener('click', () => {
+    $('#message').text('Sign Up Failed')
+  })
+  const newGameError = document.querySelector('#new-game')
+  newGameError.addEventListener('click', () => {
+    $('#message').text('New Game Failed')
+  })
 }
 
 const onSignUpSuccess = (response) => {
@@ -37,13 +55,9 @@ const onSignOutSuccess = () => {
 }
 
 const onNewGameSuccess = (response) => {
-  store.token = response.user.token
+  // store.token = response.user.token
+  $('#game-choice-btn').show()
   $('#game-board').show()
-  // populate board logic
-  $('#created-book').html(`
-    <h3>Title: ${response.book.title}</h3>
-    <p>Author: ${response.book.author}</p>
-  `)
 }
 
 module.exports = {
