@@ -55,9 +55,15 @@ const onSignOutSuccess = () => {
 }
 
 const onNewGameSuccess = (response) => {
-  // store.token = response.user.token
   $('#game-choice-btn').show()
   $('#game-board').show()
+  // store.token = response.user.token
+  store.id = response.game._id
+  const playerOne = {
+    choice: 'X'
+  }
+  // const board = ['', '', '', '', '', '', '', '', '']
+  $('#btn-message').text('Player One is  ' + playerOne.choice)
 }
 
 module.exports = {

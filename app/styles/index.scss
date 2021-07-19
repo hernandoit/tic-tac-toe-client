@@ -10,6 +10,18 @@ body {
   text-align: center;
 }
 
+#sign-up {
+  width: 240px;
+  text-align: right;
+  display: inline-block;
+}
+
+#sign-in {
+  width: 240px;
+  text-align: right;
+  display: inline-block
+}
+
 .div-box {
   background-color: #31343a;
   border: solid;
@@ -56,10 +68,6 @@ body {
     0%{background-position:0% 82%}
     50%{background-position:100% 19%}
     100%{background-position:0% 82%}
-}
-
-.game-choice-btn{
- // something here
 }
 
 #top-left{

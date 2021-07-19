@@ -33,7 +33,8 @@ const newGame = (data) => {
     url: 'https://tic-tac-toe-api-development.herokuapp.com/games',
     method: 'POST',
     headers: {
-      Authorization: 'Bearer ' + store.token
+      Authorization: 'Bearer ' + store.token,
+      data
     }
   })
 }
