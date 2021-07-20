@@ -1,6 +1,6 @@
 # Tic Tac Toe
 
-This is a tic-tac-toe game that has user authentication build into it using a prebuilt API to test against.
+This is a tic-tac-toe game using a SPA (single page application) approach with a sign up and login.  A user must first login to click on a button to show the grid to play the game.  The user will then start by playing 'X' and then 'O', alternating until the game ends.  There are two possible results to a game; win/draw.
 
 ## `Important Links`
 - [Deployed Client](https://hernandoit.github.io/tic-tac-toe-client/)
