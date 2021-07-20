@@ -105,35 +105,3 @@ body {
 #bottom-right{
   margin: 10px 0 0 10px;
 }
-
-#btn-x, #btn-o {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 24px;
-  border: solid;
-  border-color: white;
-  border-radius: 10px;
-  background: #31343a;
-  color: #ffffff;
-  width: 80px;
-  padding: 5px;
-  margin: 10px 10px 40px 10px;
-}
-
-#btn-x:hover {
-  background: #ffffff;
-  color: #31343a;
-  border-color: #e60000;
-}
-
-#btn-o:hover {
-  background: #ffffff;
-  color: #31343a;
-  border-color: #e60000;
-}
-
-#btn-reset:hover {
-  background: #ffffff;
-  color: #31343a;
-  border-color: #e60000;
-  padding: 5px;
-}
