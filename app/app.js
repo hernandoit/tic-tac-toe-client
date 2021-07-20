@@ -9,6 +9,7 @@ $(() => {
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#new-game').on('submit', authEvents.onNewGame)
+  $('.div-box').on('click', authEvents.onPlayGame)
   $('#game-choice-btn').hide()
   $('#sign-out').hide()
   $('#new-game').hide()
