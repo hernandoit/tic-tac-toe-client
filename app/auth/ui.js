@@ -52,30 +52,39 @@ const onSignOutSuccess = () => {
   $('#sign-out').hide()
   $('#game-board').hide()
   $('#new-game').hide()
+  $('game-choice-btn').hide()
 }
-
 const onNewGameSuccess = (response) => {
+  //  Display New Game button when a user signs in
   $('#game-choice-btn').show()
+  // When New Game button is clicked display game board
   $('#game-board').show()
   $('#message').text('')
   // Save the API response so you have access to the game ID and cells
-  store.id = response.game._id
-  // player object
-  const player = {
-    choice: 'X'
-  }
-  // game-board arrays
-  const board = ['', '', '', '', '', '', '', '', '']
+  store.game = response.game
 
   // Add a click handler for when a space on the game board is clicked
   $('.div-box').on('click', function () {
-    $('#message').text('clicked!')
+    // $('#message').text('clicked!')
   })
+  // const divBox = $('.div-box')
+  // console.log(divBox[0])
+  // response.game.cells.each(function (i) {
+  //   if (divBox[i]) {
+  //     divBox[i] = response.game.cells[i]
+  //   }
+  // })
+  // target.data("#div-box");
+
   //  When the user clicks on a space, first check that the space is empty
 
   //  If they choose a valid space, add their token to the HTML/CSS board and the game cells array
 
-  $('#btn-message').text('Player One is  ' + player.choice)
+  $('#btn-message').text('Player One is  ')
+}
+
+const onPlayGameSuccess = (response) => {
+
 }
 
 module.exports = {
@@ -83,5 +92,6 @@ module.exports = {
   onSignUpSuccess,
   onSignInSuccess,
   onSignOutSuccess,
-  onNewGameSuccess
+  onNewGameSuccess,
+  onPlayGameSuccess
 }
