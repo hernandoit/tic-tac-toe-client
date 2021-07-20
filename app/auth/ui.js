@@ -62,18 +62,20 @@ const onNewGameSuccess = (response) => {
   $('#message').text('')
   // Save the API response so you have access to the game ID and cells
   store.game = response.game
-  // target.data("#div-box");
 }
 
 const onPlayGameSuccess = (response) => {
+  console.log(response)
   $('#message').text('Player One is  ' + response.player)
   const divBox = $('.div-box')
-  console.log(divBox[0])
-  response.game.cells.each(function (i) {
-    if (divBox[i]) {
-      divBox[i] = response.game.cells[i]
-    }
+  response.game.cells.forEach(function (val, i) {
+    divBox[i].innerText = val
   })
+
+  // method for winning
+  // as soon as move is played check for winning
+  // if winner stop everything
+  // if store.game.over is true
 }
 
 module.exports = {

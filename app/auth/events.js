@@ -59,8 +59,16 @@ const onPlayGame = (e) => {
   store.game.cells[cellIndex] = player
   // console.log('this is store game cell clicked ', store.game.cells[cellIndex])
   // console.log('this is the stored game  ', store.game)
-
-  api.playGame(store.game)
+  const game = {
+    game: {
+      cell: {
+        index: cellIndex,
+        value: player
+      },
+      over: false
+    }
+  }
+  api.playGame(game)
     .then(ui.onPlayGameSuccess)
     .catch(ui.onFailure)
 

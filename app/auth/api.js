@@ -41,9 +41,9 @@ const newGame = (data) => {
   })
 }
 const playGame = (game) => {
-  // console.log('the game id', game.id)
+  console.log('the game ', game)
   return $.ajax({
-    url: config.apiUrl + '/games/' + game._id,
+    url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',
     data: game,
     headers: {
