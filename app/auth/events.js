@@ -34,7 +34,7 @@ const onSignOut = () => {
   api.signOut()
     .then(ui.onSignOutSuccess)
     .catch(ui.onFailure)
-
+}
 
 const onNewGame = (e) => {
   e.preventDefault()
