@@ -64,27 +64,24 @@ const onNewGameSuccess = (response) => {
   store.game = response.game
 
   // Add a click handler for when a space on the game board is clicked
-  $('.div-box').on('click', function () {
-    // $('#message').text('clicked!')
-  })
-  // const divBox = $('.div-box')
-  // console.log(divBox[0])
-  // response.game.cells.each(function (i) {
-  //   if (divBox[i]) {
-  //     divBox[i] = response.game.cells[i]
-  //   }
-  // })
+
+  //
   // target.data("#div-box");
 
   //  When the user clicks on a space, first check that the space is empty
 
   //  If they choose a valid space, add their token to the HTML/CSS board and the game cells array
-
-  $('#btn-message').text('Player One is  ')
 }
 
 const onPlayGameSuccess = (response) => {
-
+  $('#message').text('Player One is  ' + response.player)
+  const divBox = $('.div-box')
+  console.log(divBox[0])
+  response.game.cells.each(function (i) {
+    if (divBox[i]) {
+      divBox[i] = response.game.cells[i]
+    }
+  })
 }
 
 module.exports = {

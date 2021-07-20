@@ -2,6 +2,7 @@
 const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+
 let turn = true
 
 const onSignUp = (e) => {
@@ -48,8 +49,8 @@ const onNewGame = (e) => {
 
 const onPlayGame = (e) => {
   e.preventDefault()
-  const box = e.target
-  const cellIndex = $(box).attr('id')
+  const divBox = e.target
+  const cellIndex = $(divBox).attr('_id')
   // start player as X
   const player = turn ? 'x' : 'o'
 
