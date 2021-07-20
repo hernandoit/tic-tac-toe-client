@@ -62,15 +62,7 @@ const onNewGameSuccess = (response) => {
   $('#message').text('')
   // Save the API response so you have access to the game ID and cells
   store.game = response.game
-
-  // Add a click handler for when a space on the game board is clicked
-
-  //
   // target.data("#div-box");
-
-  //  When the user clicks on a space, first check that the space is empty
-
-  //  If they choose a valid space, add their token to the HTML/CSS board and the game cells array
 }
 
 const onPlayGameSuccess = (response) => {
