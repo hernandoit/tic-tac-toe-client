@@ -9,6 +9,7 @@
   "dependencies": {
     "bootstrap": "^5.0.1",
     "jquery": "^3.6.0",
+    "particlesjs": "^2.2.3",
     "popper.js": "^1.14.3"
   },
   "devDependencies": {
