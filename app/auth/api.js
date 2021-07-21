@@ -40,8 +40,8 @@ const newGame = (data) => {
     }
   })
 }
+
 const playGame = (game) => {
-  console.log('the game ', game)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',
