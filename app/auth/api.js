@@ -4,7 +4,6 @@ const store = require('./../store')
 const config = require('./../config')
 
 const signUp = (data) => {
-  console.log(config.apiUrl)
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
@@ -29,7 +28,7 @@ const signOut = () => {
     }
   })
 }
-// make POST games API call to create game
+
 const newGame = (data) => {
   return $.ajax({
     url: config.apiUrl + '/games',
@@ -51,6 +50,7 @@ const playGame = (game) => {
     }
   })
 }
+
 module.exports = {
   signUp,
   signIn,
