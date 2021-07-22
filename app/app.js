@@ -10,6 +10,7 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#new-game').on('submit', authEvents.onNewGame)
   $('.div-box').on('click', authEvents.onPlayGame)
+  // set the default visible state of our logged in and game objects
   $('#sign-out').hide()
   $('#new-game').hide()
   $('#game-board').hide()
