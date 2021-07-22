@@ -1,11 +1,12 @@
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 const authEvents = require('./auth/events')
+const particle = require('node_modules/particlesjs/src/particles.js')
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
 $(() => {
-  Particles.init({
+  particle.Particles.init({
     selector: '.background',
     color: ['#DA0463', '#404B69', '#DBEDF3'],
     connectParticles: true
