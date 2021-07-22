@@ -49,6 +49,7 @@ const onSignOutSuccess = () => {
   $('#message').text('You have been successfully logout')
   $('#sign-in').show()
   $('#sign-up').show()
+  $('.background').show()
   $('#sign-out').hide()
   $('#game-board').hide()
   $('#new-game').hide()
@@ -56,6 +57,9 @@ const onSignOutSuccess = () => {
 }
 
 const onNewGameSuccess = (response) => {
+  $('#game-board').trigger('reset')
+  $('.div-box').trigger('clear')
+  $('.background').hide()
   //  Display New Game button when a user signs in
   $('#game-choice-btn').show()
   // When New Game button is clicked display game board
@@ -66,31 +70,10 @@ const onNewGameSuccess = (response) => {
 }
 
 const onPlayGameSuccess = (response) => {
-  // game over value
-  const gameOver = store.game.over
-  const isOver = gameOver ? 'true' : 'false'
-
   const divBox = $('.div-box')
   response.game.cells.forEach(function (val, i) {
     divBox[i].innerText = val
   })
-
-  if (divBox === '') {
-
-  }
-  // method for winning
-  // as soon as move is played check for winning
-  // if winner stop everything
-  // if store.game.over is true
-
-  //   When playing game, user must only select available spaces on the board
-
-  //  When playing game, user must be notified of win or tie
-
-  //  Once a game is over, user must not be able to add to that board
-
-  //  Once a game is over, user must be able to play again
-  return isOver
 }
 
 module.exports = {

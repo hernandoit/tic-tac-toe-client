@@ -10,18 +10,6 @@ body {
   text-align: center;
 }
 
-#sign-up {
-  width: 240px;
-  text-align: right;
-  display: inline-block;
-}
-
-#sign-in {
-  width: 240px;
-  text-align: right;
-  display: inline-block
-}
-
 .div-box {
   background-color: #31343a;
   border: solid;
@@ -35,8 +23,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   font-family: 'Permanent Marker', cursive;
-  height: 358px;
-  width: 358px;
+  height: 330px;
+  width: 340px;
   background: linear-gradient( 124deg, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000 );
   -webkit-animation: rainbow 18s ease infinite;
   -z-animation: rainbow 18s ease infinite;
@@ -68,6 +56,12 @@ body {
     0%{background-position:0% 82%}
     50%{background-position:100% 19%}
     100%{background-position:0% 82%}
+}
+
+#sign-up, #sign-in {
+  width: 240px;
+  text-align: left;
+  display: inline-block;
 }
 
 #top-left{

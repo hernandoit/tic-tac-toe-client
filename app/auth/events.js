@@ -51,23 +51,31 @@ const onNewGame = (e) => {
 const onPlayGame = (e) => {
   e.preventDefault()
   const divBox = e.target
-
   const cellIndex = $(divBox).data('box-index')
   const player = turn ? 'x' : 'o'
-  // console.log('this is the cellIndex  ', cellIndex)
-  // console.log('this is the player  ', player)
+
   store.game.cells[cellIndex] = player
-  // console.log('this is store game cell clicked ', store.game.cells[cellIndex])
-  // console.log('this is the stored game  ', store.game)
+
+  const gameOver = store.game.over
+
+  const checkWin = () => {
+  // as soon as move is played check for winning
+  // if winner stop everything
+  // if store.game.over is true
+    // return winner
+  }
+  checkWin()
+
   const game = {
     game: {
       cell: {
         index: cellIndex,
         value: player
       },
-      over: false
+      over: gameOver
     }
   }
+
   api.playGame(game)
     .then(ui.onPlayGameSuccess)
     .catch(ui.onFailure)
