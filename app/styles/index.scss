@@ -6,8 +6,12 @@ h1 {
 
 body {
   background: #31343a;
-  color: #ffffff;
+  // color: #ffffff;
   text-align: center;
+}
+
+form {
+border-radius: 10px;
 }
 
 .div-box {
@@ -23,6 +27,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   font-family: 'Permanent Marker', cursive;
+  color: #ffffff;
   height: 330px;
   width: 340px;
   background: linear-gradient( 124deg, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000 );
@@ -30,7 +35,7 @@ body {
   -z-animation: rainbow 18s ease infinite;
   -o-animation: rainbow 18s ease infinite;
   animation: rainbow 18s ease infinite;
-  margin: auto;
+  margin: 50px auto;
   background-size: 100% 1400%;
 }
 
@@ -59,7 +64,6 @@ body {
 }
 
 #sign-up, #sign-in {
-  width: 240px;
   text-align: left;
   display: inline-block;
 }

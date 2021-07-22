@@ -44,25 +44,40 @@
       <p id="message"></p>
 
 <!-- SIGN UP FORM -->
-      <form id="sign-up">
+      <form class="bg-white  rounded-5 shadow-5-strong p-5" id="sign-up">
+
         <h3>Sign Up</h3>
-        <label>Email</label>
-        <input name="credentials[email]" type="email">
-        <label>Password</label>
-        <input name="credentials[password]" type="password">
-        <label>Password Confirmation</label>
-        <input name="credentials[password_confirmation]" type="password">
-        <button type="submit" class="btn btn-light">Sign Up</button>
+          <div class="form-outline mb-4">
+        <label class="form-label">Email</label>
+        <input class="form-control" name="credentials[email]" type="email">
+          </div>
+
+          <div class="form-outline mb-4">
+        <label class="form-label">Password</label>
+        <input class="form-control" name="credentials[password]" type="password">
+        </div>
+
+          <div class="form-outline mb-4">
+        <label class="form-label">Password Confirmation</label>
+        <input class="form-control" name="credentials[password_confirmation]" type="password">
+        </div>
+
+        <button type="submit" class="btn btn-dark">Sign Up</button>
       </form>
 
 <!-- SIGN IN FORM -->
-      <form id="sign-in">
+      <form class="bg-white  rounded-5 shadow-5-strong p-5" id="sign-in">
         <h3>Sign In</h3>
-        <label>Email</label>
-        <input name="credentials[email]" type="email">
-        <label>Password</label>
-        <input name="credentials[password]" type="password">
-        <button type="submit" class="btn btn-light">Sign In</button>
+                  <div class="form-outline mb-4">
+        <label class="form-label">Email</label>
+        <input class="form-control" name="credentials[email]" type="email">
+                  </div>
+                  <div class="form-outline mb-4">
+
+        <label class="form-label">Password</label>
+        <input class="form-control" name="credentials[password]" type="password">
+        </div>
+        <button type="submit" class="btn btn-dark">Sign In</button>
       </form>
 
 <!-- SIGN OUT BUTTON -->
