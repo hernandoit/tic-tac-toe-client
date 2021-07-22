@@ -5,6 +5,11 @@ const authEvents = require('./auth/events')
 // require('./example')
 
 $(() => {
+  Particles.init({
+    selector: '.background',
+    color: ['#DA0463', '#404B69', '#DBEDF3'],
+    connectParticles: true
+  })
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('click', authEvents.onSignOut)
