@@ -2,8 +2,6 @@
 const store = require('./../store')
 
 const onFailure = (response) => {
-  // console.error(response)
-
   $('#sign-up').trigger('reset')
   $('#game-board').hide()
 
@@ -53,13 +51,10 @@ const onSignOutSuccess = () => {
   $('#sign-out').hide()
   $('#game-board').hide()
   $('#new-game').hide()
-  $('game-choice-btn').hide()
 }
 
 const onNewGameSuccess = (response) => {
   $('#game-board').trigger('reset')
-  $('.div-box').trigger('clear')
-  $('.background').hide()
   //  Display New Game button when a user signs in
   $('#game-choice-btn').show()
   // When New Game button is clicked display game board
