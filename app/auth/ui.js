@@ -1,27 +1,23 @@
 'use strict'
 const store = require('./../store')
 
-const onFailure = (response) => {
-  $('#sign-up').trigger('reset')
-  $('#game-board').hide()
+// const onFailure = (response) => {
+//   $('#sign-up').trigger('reset')
+//   $('#game-board').hide()
 
-  const signUpError = document.querySelector('#sign-up')
-  signUpError.addEventListener('click', () => {
-    $('#message').text('Sign Up Failed')
-  })
-  const signInError = document.querySelector('#sign-in')
-  signInError.addEventListener('click', () => {
-    $('#message').text('Sign In Failed')
-  })
-  const signOutError = document.querySelector('#sign-out')
-  signOutError.addEventListener('click', () => {
-    $('#message').text('Sign Up Failed')
-  })
-  const newGameError = document.querySelector('#new-game')
-  newGameError.addEventListener('click', () => {
-    $('#message').text('New Game Failed')
-  })
-}
+//   const signInError = document.querySelector('#sign-in')
+//   signInError.addEventListener('click', () => {
+//     $('#message').text('Sign In Failed')
+//   })
+//   const signOutError = document.querySelector('#sign-out')
+//   signOutError.addEventListener('click', () => {
+//     $('#message').text('Sign Up Failed')
+//   })
+//   const newGameError = document.querySelector('#new-game')
+//   newGameError.addEventListener('click', () => {
+//     $('#message').text('New Game Failed')
+//   })
+// }
 
 const onSignUpSuccess = (response) => {
   $('#message').text(`Thank you for signing up ${response.user.email}`)
@@ -32,6 +28,13 @@ const onSignUpSuccess = (response) => {
   $('#game-board').hide()
 }
 
+const onSignUpFailure = () => {
+  $('#message').text('Sign Up Failed, please try again!')
+  $('#sign-out').hide()
+  $('#sign-in').hide()
+  $('#sign-up').show()
+  $('#game-board').hide()
+}
 const onSignInSuccess = (response) => {
   $('#message').text(`${response.user.email} is signed in`)
   store.token = response.user.token
@@ -43,14 +46,25 @@ const onSignInSuccess = (response) => {
   $('#new-game').show()
 }
 
+const onSignInFailure = () => {
+  $('#message').text('Sign In Failed, please try again!')
+  $('#sign-out').hide()
+  $('#sign-in').show()
+  $('#sign-up').hide()
+  $('#game-board').hide()
+}
+
 const onSignOutSuccess = () => {
   $('#message').text('You have been successfully logout')
   $('#sign-in').show()
   $('#sign-up').show()
-  $('.background').show()
   $('#sign-out').hide()
   $('#game-board').hide()
   $('#new-game').hide()
+}
+
+const onSignOutFailure = () => {
+  $('#message').text('Something went wrong, you are not signed out!')
 }
 
 const onNewGameSuccess = (response) => {
@@ -65,6 +79,10 @@ const onNewGameSuccess = (response) => {
   store.game = response.game
 }
 
+const onNewGameFailure = () => {
+  $('#message').text('failed to start a new game!')
+}
+
 const onPlayGameSuccess = (response) => {
   const divBox = $('.div-box')
   response.game.cells.forEach(function (val, i) {
@@ -72,11 +90,19 @@ const onPlayGameSuccess = (response) => {
   })
 }
 
+const onPlayGameFailure = () => {
+  $('#message').text('unable to play game!')
+}
+
 module.exports = {
-  onFailure,
   onSignUpSuccess,
+  onSignUpFailure,
   onSignInSuccess,
+  onSignInFailure,
   onSignOutSuccess,
+  onSignOutFailure,
   onNewGameSuccess,
-  onPlayGameSuccess
+  onNewGameFailure,
+  onPlayGameSuccess,
+  onPlayGameFailure
 }
