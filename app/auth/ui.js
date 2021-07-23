@@ -1,24 +1,6 @@
 'use strict'
 const store = require('./../store')
 
-// const onFailure = (response) => {
-//   $('#sign-up').trigger('reset')
-//   $('#game-board').hide()
-
-//   const signInError = document.querySelector('#sign-in')
-//   signInError.addEventListener('click', () => {
-//     $('#message').text('Sign In Failed')
-//   })
-//   const signOutError = document.querySelector('#sign-out')
-//   signOutError.addEventListener('click', () => {
-//     $('#message').text('Sign Up Failed')
-//   })
-//   const newGameError = document.querySelector('#new-game')
-//   newGameError.addEventListener('click', () => {
-//     $('#message').text('New Game Failed')
-//   })
-// }
-
 const onSignUpSuccess = (response) => {
   $('#message').text(`Thank you for signing up ${response.user.email}`)
   $('#sign-up').trigger('reset')

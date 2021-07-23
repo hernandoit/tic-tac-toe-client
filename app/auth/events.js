@@ -22,7 +22,7 @@ const onSignUp = (e) => {
     // handle successful API calls with .then
     .then(ui.onSignUpSuccess)
     // Handle failed API calls with .catch
-    .catch(ui.onFailure)
+    .catch(ui.onSignUpFailure)
 }
 
 const onSignIn = (e) => {
@@ -33,13 +33,13 @@ const onSignIn = (e) => {
 
   api.signIn(data)
     .then(ui.onSignInSuccess)
-    .catch(ui.onFailure)
+    .catch(ui.onSignInFailure)
 }
 // we don't pass the (e) event because we already have the token and there is nothing to submit
 const onSignOut = () => {
   api.signOut()
     .then(ui.onSignOutSuccess)
-    .catch(ui.onFailure)
+    .catch(ui.onSignOutFailure)
 }
 
 const onNewGame = (e) => {
@@ -48,10 +48,11 @@ const onNewGame = (e) => {
   const data = getFormFields(form)
   // resets the state of 'over'
   gameOver = false
-
+  // resets the board to become clickable again
+  $('.div-box').attr('disabled', 'false')
   api.newGame(data)
     .then(ui.onNewGameSuccess)
-    .catch(ui.onFailure)
+    .catch(ui.onNewGameFailure)
 }
 
 const onPlayGame = (e) => {
@@ -68,7 +69,7 @@ const onPlayGame = (e) => {
   // sets the game APIs cells with our click events players value
   apiCells[cellIndex] = player
   // variable to change APIs 'over' key value
-  store.game.over = gameOver
+  gameOver = store.game.over
   console.log(gameOver)
   // variable to hold an array of winning indexes
   const winningArray = [
@@ -81,8 +82,21 @@ const onPlayGame = (e) => {
     [0, 4, 8],
     [2, 4, 6]
   ]
+  // sets the game APIs index/value/over values
+  const game = {
+    game: {
+      cell: {
+        index: cellIndex,
+        value: player
+      },
+      over: gameOver
+    }
+  }
   // looping through our winningIndexes
   const checkForWin = () => {
+    if (apiCells[cellIndex] !== '') {
+      $('#message').text(`It's ${player}'s turn`)
+    }
     for (let i = 0; i < winningArray.length; i++) {
       // variable to get the individual indexes within our array
       const winIndex = winningArray[i]
@@ -98,38 +112,21 @@ const onPlayGame = (e) => {
         apiCells[winIndex[1]] === apiCells[winIndex[2]]
       ) {
         gameOver = true
-        break
       }
     }
-    if (gameOver) {
+    if (gameOver === true) {
       $('#message').text(`Player ${player} has won!`)
       // disable div box clicks
-      divBox.disabled = true
+      return
     }
     if (!apiCells.includes('')) {
       $('#message').text('Draw!, Try Again!')
       // disable div box clicks
-      divBox.disabled = true
     }
-    // if (apiCells[cellIndex] !== '') {
-    //   $('#message').text(`It's ${player}'s turn`)
-    // }
   }
   checkForWin()
-  // sets the game APIs index/value/over values
-  const game = {
-    game: {
-      cell: {
-        index: cellIndex,
-        value: player
-      },
-      over: gameOver
-    }
-  }
 
-  api.playGame(game)
-    .then(ui.onPlayGameSuccess)
-    .catch(ui.onFailure)
+  api.playGame(game).then(ui.onPlayGameSuccess).catch(ui.onPlayGameFailure)
 
   // changes player from 'X' to 'O'
   turn = !turn
