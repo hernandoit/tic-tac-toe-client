@@ -8,8 +8,6 @@ const store = require('./../store')
 let turn = true
 // sets the 'over' value to false
 let gameOver = false
-//
-let gameWon = false
 
 const onSignUp = (e) => {
   // prevents the click event from refreshing the page
@@ -48,6 +46,8 @@ const onNewGame = (e) => {
   e.preventDefault()
   const form = e.target
   const data = getFormFields(form)
+  // resets the state of 'over'
+  gameOver = false
 
   api.newGame(data)
     .then(ui.onNewGameSuccess)
@@ -68,9 +68,10 @@ const onPlayGame = (e) => {
   // sets the game APIs cells with our click events players value
   apiCells[cellIndex] = player
   // variable to change APIs 'over' key value
-  gameOver = store.game.over
+  store.game.over = gameOver
+  console.log(gameOver)
   // variable to hold an array of winning indexes
-  const winningIndexes = [
+  const winningArray = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -82,25 +83,37 @@ const onPlayGame = (e) => {
   ]
   // looping through our winningIndexes
   const checkForWin = () => {
-    for (let i = 0; i < winningIndexes.length; i++) {
+    for (let i = 0; i < winningArray.length; i++) {
       // variable to get the individual indexes within our array
-      const win = winningIndexes[i]
-      // variables to refer to the individual indexes
-      const a = apiCells[win[0]]
-      const b = apiCells[win[1]]
-      const c = apiCells[win[2]]
-      // conditionals to check for empty spaces
-      if (a === '' || b === '' || c === '') {
+      const winIndex = winningArray[i]
+      // conditionals to check for empty spaces or win condition
+      if (
+        apiCells[winIndex[0]] === '' ||
+        apiCells[winIndex[1]] === '' ||
+        apiCells[winIndex[2]] === ''
+      ) {
         continue
-      } else if (a === b && b === c) {
+      } else if (
+        apiCells[winIndex[0]] === apiCells[winIndex[1]] &&
+        apiCells[winIndex[1]] === apiCells[winIndex[2]]
+      ) {
         gameOver = true
         break
       }
     }
     if (gameOver) {
       $('#message').text(`Player ${player} has won!`)
-      gameWon = true
+      // disable div box clicks
+      divBox.disabled = true
     }
+    if (!apiCells.includes('')) {
+      $('#message').text('Draw!, Try Again!')
+      // disable div box clicks
+      divBox.disabled = true
+    }
+    // if (apiCells[cellIndex] !== '') {
+    //   $('#message').text(`It's ${player}'s turn`)
+    // }
   }
   checkForWin()
   // sets the game APIs index/value/over values
@@ -114,16 +127,11 @@ const onPlayGame = (e) => {
     }
   }
 
-  // if (apiCells[cellIndex] !== '' || gameWon) {
-  //   // set message text
-  //   $('#message').text(`It's ${player}'s turn`)
-  //   return
-  // }
+  api.playGame(game)
+    .then(ui.onPlayGameSuccess)
+    .catch(ui.onFailure)
 
-  // 'Game ended in a draw!'
-  api.playGame(game).then(ui.onPlayGameSuccess).catch(ui.onFailure)
-
-  // changes player from 'x' to 'o'
+  // changes player from 'X' to 'O'
   turn = !turn
   return turn
 }
@@ -135,3 +143,4 @@ module.exports = {
   onNewGame,
   onPlayGame
 }
+// not be able to change value when clicked and disable board
