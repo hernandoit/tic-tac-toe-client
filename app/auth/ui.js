@@ -59,7 +59,8 @@ const onNewGameSuccess = (response) => {
   $('#game-choice-btn').show()
   // When New Game button is clicked display game board
   $('#game-board').show()
-  $('#message').text('')
+  // set message text
+  $('#message').text('a new game has been started')
   // Save the API response so you have access to the game ID and cells
   store.game = response.game
 }

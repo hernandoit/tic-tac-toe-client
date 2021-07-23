@@ -1,112 +1,116 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Tic Tac Toe</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-    <body>
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
-      <!-- NAV BAR -->
-      <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><h1>Tic Tac Toe</h1></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Sign Up</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Sign In</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Sign Out</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+<body>
 
-<!-- default messaging -->
-      <p id="message"></p>
+  <!-- NAV BAR -->
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <h1>Tic Tac Toe</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-<!-- SIGN UP FORM -->
-      <form class="bg-white  rounded-5 shadow-5-strong p-5" id="sign-up">
+  <!-- default messaging -->
+  <p id="message"></p>
 
-        <h3>Sign Up</h3>
-          <div class="form-outline mb-4">
-        <label class="form-label">Email</label>
-        <input class="form-control" name="credentials[email]" type="email">
-          </div>
+  <!-- SIGN UP FORM -->
+  <form class="bg-white  rounded-5 shadow-5-strong p-5" id="sign-up">
 
-          <div class="form-outline mb-4">
-        <label class="form-label">Password</label>
-        <input class="form-control" name="credentials[password]" type="password">
-        </div>
+    <h3>Sign Up</h3>
+    <div class="form-outline mb-4">
+      <label class="form-label">Email</label>
+      <input class="form-control" name="credentials[email]" type="email">
+    </div>
 
-          <div class="form-outline mb-4">
-        <label class="form-label">Password Confirmation</label>
-        <input class="form-control" name="credentials[password_confirmation]" type="password">
-        </div>
+    <div class="form-outline mb-4">
+      <label class="form-label">Password</label>
+      <input class="form-control" name="credentials[password]" type="password">
+    </div>
 
-        <button type="submit" class="btn btn-dark">Sign Up</button>
-      </form>
+    <div class="form-outline mb-4">
+      <label class="form-label">Password Confirmation</label>
+      <input class="form-control" name="credentials[password_confirmation]" type="password">
+    </div>
 
-<!-- SIGN IN FORM -->
-      <form class="bg-white  rounded-5 shadow-5-strong p-5" id="sign-in">
-        <h3>Sign In</h3>
-                  <div class="form-outline mb-4">
-        <label class="form-label">Email</label>
-        <input class="form-control" name="credentials[email]" type="email">
-                  </div>
-                  <div class="form-outline mb-4">
+    <button type="submit" class="btn btn-dark">Sign Up</button>
+  </form>
 
-        <label class="form-label">Password</label>
-        <input class="form-control" name="credentials[password]" type="password">
-        </div>
-        <button type="submit" class="btn btn-dark">Sign In</button>
-      </form>
+  <!-- SIGN IN FORM -->
+  <form class="bg-white  rounded-5 shadow-5-strong p-5" id="sign-in">
+    <h3>Sign In</h3>
+    <div class="form-outline mb-4">
+      <label class="form-label">Email</label>
+      <input class="form-control" name="credentials[email]" type="email">
+    </div>
+    <div class="form-outline mb-4">
 
-<!-- SIGN OUT BUTTON -->
-        <button class="btn btn-light" id="sign-out">Sign Out</button>
+      <label class="form-label">Password</label>
+      <input class="form-control" name="credentials[password]" type="password">
+    </div>
+    <button type="submit" class="btn btn-dark">Sign In</button>
+  </form>
 
-      <!-- NEW GAME FORM -->
-      <form id="new-game">
-        <h3>New Game?</h3>
-      <button type="submit" class="btn btn-light">New Game</button>
-      </form>
+  <!-- SIGN OUT BUTTON -->
+  <button class="btn btn-light" id="sign-out">Sign Out</button>
 
-<!-- GAME BOARD -->
-<section id="game-board">
+  <!-- NEW GAME FORM -->
+  <form id="new-game">
+    <h3>New Game?</h3>
+    <button type="submit" class="btn btn-light">New Game</button>
+  </form>
 
-  <!-- top row -->
-  <div data-box-index="0" class="div-box" id="top-left"></div>
-  <div data-box-index="1" class="div-box" id="top-mid"></div>
-  <div data-box-index="2" class="div-box" id="top-right"></div>
+  <!-- GAME BOARD -->
+  <section id="game-board">
 
-  <!-- middle row -->
-  <div data-box-index="3" class="div-box" id="mid-left"></div>
-  <div data-box-index="4" class="div-box" id="mid"></div>
-  <div data-box-index="5" class="div-box" id="mid-right"></div>
+    <!-- top row -->
+    <div data-box-index="0" class="div-box" id="top-left"></div>
+    <div data-box-index="1" class="div-box" id="top-mid"></div>
+    <div data-box-index="2" class="div-box" id="top-right"></div>
 
-  <!-- bottom row -->
-  <div data-box-index="6" class="div-box" id="bottom-left"></div>
-  <div data-box-index="7" class="div-box" id="bottom-mid"></div>
-  <div data-box-index="8" class="div-box" id="bottom-right"></div>
-</section>
+    <!-- middle row -->
+    <div data-box-index="3" class="div-box" id="mid-left"></div>
+    <div data-box-index="4" class="div-box" id="mid"></div>
+    <div data-box-index="5" class="div-box" id="mid-right"></div>
 
-    </body>
+    <!-- bottom row -->
+    <div data-box-index="6" class="div-box" id="bottom-left"></div>
+    <div data-box-index="7" class="div-box" id="bottom-mid"></div>
+    <div data-box-index="8" class="div-box" id="bottom-right"></div>
+  </section>
+
+</body>
+
 </html>
