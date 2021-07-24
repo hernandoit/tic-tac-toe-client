@@ -53,8 +53,6 @@ const onNewGameSuccess = (response) => {
   $('#game-board').trigger('reset')
   // When New Game button is clicked display game board
   $('#game-board').show()
-  // set message text
-  $('#message').text('a new game has been started')
   // clears the board for a new game
   $('.div-box').html('')
   // Save the API response so you have access to the game ID and cells
