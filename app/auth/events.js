@@ -6,8 +6,6 @@ const store = require('./../store')
 /** * GLOBAL VARIABLES * **/
 // sets the players turn to 'x'
 let turn = true
-// sets the 'over' value to false
-let gameOver = false
 
 const onSignUp = (e) => {
   // prevents the click event from refreshing the page
@@ -15,10 +13,8 @@ const onSignUp = (e) => {
   // get info from event and form
   const form = e.target
   const data = getFormFields(form)
-
   // make an api call using ajax
-  api
-    .signUp(data)
+  api.signUp(data)
     // handle successful API calls with .then
     .then(ui.onSignUpSuccess)
     // Handle failed API calls with .catch
@@ -44,15 +40,17 @@ const onSignOut = () => {
 
 const onNewGame = (e) => {
   e.preventDefault()
+
   const form = e.target
   const data = getFormFields(form)
-  // resets the state of 'over'
-  gameOver = false
-  // resets the board to become clickable again
-  $('.div-box').attr('disabled', 'false')
+
   api.newGame(data)
     .then(ui.onNewGameSuccess)
     .catch(ui.onNewGameFailure)
+
+  // sets player to 'X' at start of game
+  turn = true
+  return true
 }
 
 const onPlayGame = (e) => {
@@ -68,9 +66,12 @@ const onPlayGame = (e) => {
   const apiCells = store.game.cells
   // sets the game APIs cells with our click events players value
   apiCells[cellIndex] = player
+  // sets the 'over' value to false
+  let gameOver
   // variable to change APIs 'over' key value
   gameOver = store.game.over
-  console.log(gameOver)
+  // variable to check if a box has is empty
+  const boxValue = $($('.div-box')[cellIndex]).text()
   // variable to hold an array of winning indexes
   const winningArray = [
     [0, 1, 2],
@@ -82,6 +83,48 @@ const onPlayGame = (e) => {
     [0, 4, 8],
     [2, 4, 6]
   ]
+
+  // conditional that checks if a box is empty
+  // console.log($('.div-box')[cellIndex])
+  if (boxValue) {
+    $('#message').text(`It's ${player}'s turn`)
+    return
+  }
+  // ends the game
+  if (store.game.over) {
+    console.log('Game Over')
+    return
+  }
+
+  // looping through our winningIndexes
+  const checkForWin = () => {
+    for (let i = 0; i < winningArray.length; i++) {
+      // variable to get the individual indexes within our array
+      const winIndex = winningArray[i]
+      // // conditionals to check for empty spaces or win condition
+      if (
+        apiCells[winIndex[0]] === '' ||
+        apiCells[winIndex[1]] === '' ||
+        apiCells[winIndex[2]] === ''
+      ) {
+        continue
+      }
+      if (
+        apiCells[winIndex[0]] === apiCells[winIndex[1]] &&
+        apiCells[winIndex[1]] === apiCells[winIndex[2]]
+      ) {
+        gameOver = true
+      }
+    }
+    if (gameOver === true) {
+      $('#message').text(`Player ${player} has won!`)
+    }
+    if (!apiCells.includes('')) {
+      $('#message').text('Draw!, Try Again!')
+    }
+  }
+  checkForWin()
+
   // sets the game APIs index/value/over values
   const game = {
     game: {
@@ -92,39 +135,6 @@ const onPlayGame = (e) => {
       over: gameOver
     }
   }
-  // looping through our winningIndexes
-  const checkForWin = () => {
-    if (apiCells[cellIndex] !== '') {
-      $('#message').text(`It's ${player}'s turn`)
-    }
-    for (let i = 0; i < winningArray.length; i++) {
-      // variable to get the individual indexes within our array
-      const winIndex = winningArray[i]
-      // conditionals to check for empty spaces or win condition
-      if (
-        apiCells[winIndex[0]] === '' ||
-        apiCells[winIndex[1]] === '' ||
-        apiCells[winIndex[2]] === ''
-      ) {
-        continue
-      } else if (
-        apiCells[winIndex[0]] === apiCells[winIndex[1]] &&
-        apiCells[winIndex[1]] === apiCells[winIndex[2]]
-      ) {
-        gameOver = true
-      }
-    }
-    if (gameOver === true) {
-      $('#message').text(`Player ${player} has won!`)
-      // disable div box clicks
-      return
-    }
-    if (!apiCells.includes('')) {
-      $('#message').text('Draw!, Try Again!')
-      // disable div box clicks
-    }
-  }
-  checkForWin()
 
   api.playGame(game).then(ui.onPlayGameSuccess).catch(ui.onPlayGameFailure)
 

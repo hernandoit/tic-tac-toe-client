@@ -51,12 +51,12 @@ const onSignOutFailure = () => {
 
 const onNewGameSuccess = (response) => {
   $('#game-board').trigger('reset')
-  //  Display New Game button when a user signs in
-  $('#game-choice-btn').show()
   // When New Game button is clicked display game board
   $('#game-board').show()
   // set message text
   $('#message').text('a new game has been started')
+  // clears the board for a new game
+  $('.div-box').html('')
   // Save the API response so you have access to the game ID and cells
   store.game = response.game
 }
@@ -66,6 +66,8 @@ const onNewGameFailure = () => {
 }
 
 const onPlayGameSuccess = (response) => {
+  store.game = response.game
+
   const divBox = $('.div-box')
   response.game.cells.forEach(function (val, i) {
     divBox[i].innerText = val
