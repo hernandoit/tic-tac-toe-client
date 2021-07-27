@@ -66,12 +66,51 @@ const onPlayGame = (e) => {
   const apiCells = store.game.cells
   // sets the game APIs cells with our click events players value
   apiCells[cellIndex] = player
-  // sets the 'over' value to false
-  let gameOver
-  // variable to change APIs 'over' key value
-  gameOver = store.game.over
   // variable to check if a box has is empty
   const boxValue = $($('.div-box')[cellIndex]).text()
+
+  if (store.game.over) return
+  // conditional that checks if a box is empty
+  // console.log($('.div-box')[cellIndex])
+  if (boxValue) {
+    $('#message').text(`It's ${player}'s turn`)
+    return
+  }
+  // ends the game
+  // if (gameOver === true) {
+  //   console.log('Game Over')
+  //   return
+  // }
+
+  // looping through our winningIndexes
+
+  checkForWin()
+
+  // sets the game APIs index/value/over values
+  const game = {
+    game: {
+      cell: {
+        index: cellIndex,
+        value: player
+      },
+      over: store.game.over
+    }
+  }
+
+  api.playGame(game)
+    .then(ui.onPlayGameSuccess)
+    .catch(ui.onPlayGameFailure)
+
+  // changes player from 'X' to 'O'
+  turn = !turn
+  return turn
+}
+
+const checkForWin = () => {
+  // logic to make player 'x' or 'o' based on a boleen value
+  const player = turn ? 'X' : 'O'
+  // variable to store the game APIs cells
+  const apiCells = store.game.cells
   // variable to hold an array of winning indexes
   const winningArray = [
     [0, 1, 2],
@@ -83,66 +122,31 @@ const onPlayGame = (e) => {
     [0, 4, 8],
     [2, 4, 6]
   ]
-
-  // conditional that checks if a box is empty
-  // console.log($('.div-box')[cellIndex])
-  if (boxValue) {
-    $('#message').text(`It's ${player}'s turn`)
+  for (let i = 0; i < winningArray.length; i++) {
+    // variable to get the individual indexes within our array
+    const winIndex = winningArray[i]
+    if (
+      apiCells[winIndex[0]] === '' ||
+      apiCells[winIndex[1]] === '' ||
+      apiCells[winIndex[2]] === ''
+    ) {
+      continue
+    }
+    if (
+      apiCells[winIndex[0]] === apiCells[winIndex[1]] &&
+      apiCells[winIndex[1]] === apiCells[winIndex[2]]
+    ) {
+      store.game.over = true
+    }
+  }
+  if (store.game.over === true) {
+    $('#message').text(`Player ${player} has won!`)
     return
   }
-  // ends the game
-  if (store.game.over) {
-    console.log('Game Over')
-    return
+  if (!apiCells.includes('')) {
+    $('#message').text('Draw!, Try Again!')
   }
-
-  // looping through our winningIndexes
-  const checkForWin = () => {
-    for (let i = 0; i < winningArray.length; i++) {
-      // variable to get the individual indexes within our array
-      const winIndex = winningArray[i]
-      // // conditionals to check for empty spaces or win condition
-      if (
-        apiCells[winIndex[0]] === '' ||
-        apiCells[winIndex[1]] === '' ||
-        apiCells[winIndex[2]] === ''
-      ) {
-        continue
-      }
-      if (
-        apiCells[winIndex[0]] === apiCells[winIndex[1]] &&
-        apiCells[winIndex[1]] === apiCells[winIndex[2]]
-      ) {
-        gameOver = true
-      }
-    }
-    if (gameOver === true) {
-      $('#message').text(`Player ${player} has won!`)
-    }
-    if (!apiCells.includes('')) {
-      $('#message').text('Draw!, Try Again!')
-    }
-  }
-  checkForWin()
-
-  // sets the game APIs index/value/over values
-  const game = {
-    game: {
-      cell: {
-        index: cellIndex,
-        value: player
-      },
-      over: gameOver
-    }
-  }
-
-  api.playGame(game).then(ui.onPlayGameSuccess).catch(ui.onPlayGameFailure)
-
-  // changes player from 'X' to 'O'
-  turn = !turn
-  return turn
 }
-
 module.exports = {
   onSignUp,
   onSignIn,
@@ -150,4 +154,3 @@ module.exports = {
   onNewGame,
   onPlayGame
 }
-// not be able to change value when clicked and disable board

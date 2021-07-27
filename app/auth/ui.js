@@ -55,6 +55,8 @@ const onNewGameSuccess = (response) => {
   $('#game-board').show()
   // clears the board for a new game
   $('.div-box').html('')
+  // clears message
+  $('#message').text('')
   // Save the API response so you have access to the game ID and cells
   store.game = response.game
 }
@@ -64,8 +66,6 @@ const onNewGameFailure = () => {
 }
 
 const onPlayGameSuccess = (response) => {
-  store.game = response.game
-
   const divBox = $('.div-box')
   response.game.cells.forEach(function (val, i) {
     divBox[i].innerText = val
