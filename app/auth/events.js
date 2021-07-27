@@ -68,22 +68,14 @@ const onPlayGame = (e) => {
   apiCells[cellIndex] = player
   // variable to check if a box has is empty
   const boxValue = $($('.div-box')[cellIndex]).text()
-
+  // logic to stops the game
   if (store.game.over) return
   // conditional that checks if a box is empty
-  // console.log($('.div-box')[cellIndex])
   if (boxValue) {
-    $('#message').text(`It's ${player}'s turn`)
+    // $('#message').text(`It's ${player}'s turn`)
     return
   }
-  // ends the game
-  // if (gameOver === true) {
-  //   console.log('Game Over')
-  //   return
-  // }
-
-  // looping through our winningIndexes
-
+  // call back function to check for a winner
   checkForWin()
 
   // sets the game APIs index/value/over values
@@ -122,6 +114,7 @@ const checkForWin = () => {
     [0, 4, 8],
     [2, 4, 6]
   ]
+  // looping through our winningIndexes
   for (let i = 0; i < winningArray.length; i++) {
     // variable to get the individual indexes within our array
     const winIndex = winningArray[i]
