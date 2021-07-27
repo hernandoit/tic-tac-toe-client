@@ -1,21 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 h1 {
-    font-family: 'Permanent Marker', cursive;
+  font-family: 'Permanent Marker', cursive;
 }
 
 body {
   background: #31343a;
-  // color: #ffffff;
   text-align: center;
 }
 
 form {
-border-radius: 10px;
+  border-radius: 10px;
 }
-p{
+
+p {
   color: #ffffff;
 }
+
 .div-box {
   background-color: #31343a;
   border: solid;
@@ -32,7 +33,7 @@ p{
   color: #ffffff;
   height: 330px;
   width: 340px;
-  background: linear-gradient( 124deg, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000 );
+  background: linear-gradient(124deg, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000, #8C00FC, #3500FF, #00F6FF, #0BFF00, #FFF100, #FFAC00, #FF0000);
   -webkit-animation: rainbow 18s ease infinite;
   -z-animation: rainbow 18s ease infinite;
   -o-animation: rainbow 18s ease infinite;
@@ -42,27 +43,59 @@ p{
 }
 
 @-webkit-keyframes rainbow {
-    0%{background-position:0% 82%}
-    50%{background-position:100% 19%}
-    100%{background-position:0% 82%}
+  0% {
+    background-position: 0% 82%;
+  }
+
+  50% {
+    background-position: 100% 19%;
+  }
+
+  100% {
+    background-position: 0% 82%;
+  }
 }
 
 @-moz-keyframes rainbow {
-    0%{background-position:0% 82%}
-    50%{background-position:100% 19%}
-    100%{background-position:0% 82%}
+  0% {
+    background-position: 0% 82%;
+  }
+
+  50% {
+    background-position: 100% 19%;
+  }
+
+  100% {
+    background-position: 0% 82%;
+  }
 }
 
 @-o-keyframes rainbow {
-    0%{background-position:0% 82%}
-    50%{background-position:100% 19%}
-    100%{background-position:0% 82%}
+  0% {
+    background-position: 0% 82%;
+  }
+
+  50% {
+    background-position: 100% 19%;
+  }
+
+  100% {
+    background-position: 0% 82%;
+  }
 }
 
 @keyframes rainbow {
-    0%{background-position:0% 82%}
-    50%{background-position:100% 19%}
-    100%{background-position:0% 82%}
+  0% {
+    background-position: 0% 82%;
+  }
+
+  50% {
+    background-position: 100% 19%;
+  }
+
+  100% {
+    background-position: 0% 82%;
+  }
 }
 
 #sign-up, #sign-in {
@@ -70,38 +103,38 @@ p{
   display: inline-block;
 }
 
-#top-left{
+#top-left {
   margin: 0 10px 10px 0;
 }
 
-#top-mid{
+#top-mid {
   margin: 0 10px 10px 10px;
 }
 
-#top-right{
+#top-right {
   margin: 0 0 10px 10px;
 }
 
-#mid-left{
-    align-self: center;
+#mid-left {
+  align-self: center;
 }
 
-#mid{
+#mid {
   margin: 10px 10px 10px 20px;
 }
 
-#mid-right{
+#mid-right {
   margin: 10px 0 10px 10px;
 }
 
-#bottom-left{
+#bottom-left {
   margin: 10px 10px 0 0;
 }
 
-#bottom-mid{
+#bottom-mid {
   margin: 10px 10px 0 10px;
 }
 
-#bottom-right{
+#bottom-right {
   margin: 10px 0 0 10px;
 }
