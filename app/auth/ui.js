@@ -8,6 +8,8 @@ const onSignUpSuccess = (response) => {
   $('#sign-in').show()
   $('#sign-up').hide()
   $('#game-board').hide()
+  $('#change-password').hide()
+  $('#btn-change-password').hide()
 }
 
 const onSignUpFailure = () => {
@@ -16,6 +18,8 @@ const onSignUpFailure = () => {
   $('#sign-in').hide()
   $('#sign-up').show()
   $('#game-board').hide()
+  $('#change-password').hide()
+  $('#btn-change-password').hide()
 }
 const onSignInSuccess = (response) => {
   $('#message').text(`${response.user.email} is signed in`)
@@ -26,6 +30,8 @@ const onSignInSuccess = (response) => {
   $('#sign-out').show()
   $('#game-board').hide()
   $('#new-game').show()
+  $('#change-password').hide()
+  $('#btn-change-password').show()
 }
 
 const onSignInFailure = () => {
@@ -34,15 +40,19 @@ const onSignInFailure = () => {
   $('#sign-in').show()
   $('#sign-up').hide()
   $('#game-board').hide()
+  $('#change-password').hide()
+  $('#btn-change-password').hide()
 }
 
 const onSignOutSuccess = () => {
   $('#message').text('You have been successfully logout')
   $('#sign-in').show()
-  $('#sign-up').show()
+  $('#sign-up').hide()
   $('#sign-out').hide()
   $('#game-board').hide()
   $('#new-game').hide()
+  $('#change-password').hide()
+  $('#btn-change-password').hide()
 }
 
 const onSignOutFailure = () => {
@@ -55,8 +65,14 @@ const onNewGameSuccess = (response) => {
   $('#game-board').show()
   // clears the board for a new game
   $('.div-box').html('')
+  // show the sign-out button
+  $('#sign-out').show()
   // clears message
   $('#message').text('')
+  // change password form
+  $('#change-password').hide()
+  // change password show form button
+  $('#btn-change-password').show()
   // Save the API response so you have access to the game ID and cells
   store.game = response.game
 }
@@ -75,6 +91,14 @@ const onPlayGameSuccess = (response) => {
 const onPlayGameFailure = () => {
   $('#message').text('unable to play game!')
 }
+// VERSION 2 LOGIC
+const onChangePasswordSuccess = (response) => {
+  $('#message').text('Your password has been successfully changed, please login again!')
+}
+
+const onChangePasswordFailure = () => {
+  $('#message').text('unable to change password please try again!')
+}
 
 module.exports = {
   onSignUpSuccess,
@@ -86,5 +110,7 @@ module.exports = {
   onNewGameSuccess,
   onNewGameFailure,
   onPlayGameSuccess,
-  onPlayGameFailure
+  onPlayGameFailure,
+  onChangePasswordSuccess,
+  onChangePasswordFailure
 }

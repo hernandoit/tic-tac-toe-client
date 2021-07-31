@@ -140,10 +140,53 @@ const checkForWin = () => {
     $('#message').text('Draw!, Try Again!')
   }
 }
+// VERSION 2 ADDITIONAL LOGIC
+const onShowSignIn = () => {
+  $('#sign-in').show()
+  $('#sign-up').hide()
+  $('#sign-out').hide()
+  $('#game-board').hide()
+  $('#new-game').hide()
+  $('#change-password').hide()
+}
+
+const onShowSignUp = () => {
+  $('#sign-in').hide()
+  $('#sign-up').show()
+  $('#sign-out').hide()
+  $('#game-board').hide()
+  $('#new-game').hide()
+}
+
+const onShowChangePassword = () => {
+  $('#sign-in').hide()
+  $('#sign-up').hide()
+  $('#sign-out').hide()
+  $('#game-board').hide()
+  $('#new-game').hide()
+  $('#change-password').show()
+  $('#btn-change-password').hide()
+}
+
+const onChangePassword = (e) => {
+  e.preventDefault()
+
+  const form = e.target
+  const data = getFormFields(form)
+
+  api.changePassword(data)
+    .then(ui.onChangePasswordSuccess)
+    .catch(ui.onChangePasswordFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
   onNewGame,
-  onPlayGame
+  onPlayGame,
+  onShowSignIn,
+  onShowSignUp,
+  onShowChangePassword,
+  onChangePassword
 }

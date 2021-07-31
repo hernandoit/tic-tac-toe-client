@@ -14,34 +14,10 @@
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
-
 <body>
-
-  <!-- NAV BAR -->
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <h1>Tic Tac Toe</h1>
-      </a>
-      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sign In</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sign Out</a>
-          </li>
-        </ul>
-      </div> -->
-    </div>
-  </nav>
+<header>
+  <h1>Tic Tac Toe</h1>
+</header>
 
   <!-- default messaging -->
   <p id="message"></p>
@@ -50,6 +26,7 @@
   <form class="bg-white  rounded-5 shadow-5-strong p-5" id="sign-up">
 
     <h3>Sign Up</h3>
+
     <div class="form-outline mb-4">
       <label class="form-label">Email</label>
       <input class="form-control" name="credentials[email]" type="email">
@@ -65,32 +42,78 @@
       <input class="form-control" name="credentials[password_confirmation]" type="password">
     </div>
 
-    <button type="submit" class="btn btn-dark">Sign Up</button>
+    <div class="form-outline mb-4">
+      <button type="submit" class="btn btn-dark btn-lg btn-block">Sign Up</button>
+    </div>
+
+    <div class="form-outline mb-4">
+      <label>Already have an account? <a class="link-primary" id="link-sign-in">Sign In</a></label>
+    </div>
+
   </form>
 
   <!-- SIGN IN FORM -->
   <form class="bg-white  rounded-5 shadow-5-strong p-5" id="sign-in">
+
     <h3>Sign In</h3>
+
     <div class="form-outline mb-4">
       <label class="form-label">Email</label>
       <input class="form-control" name="credentials[email]" type="email">
     </div>
-    <div class="form-outline mb-4">
 
+    <div class="form-outline mb-4">
       <label class="form-label">Password</label>
       <input class="form-control" name="credentials[password]" type="password">
     </div>
-    <button type="submit" class="btn btn-dark">Sign In</button>
+
+    <div class="form-outline mb-4">
+      <button type="submit" class="btn btn-dark btn-lg btn-block">Sign In</button>
+    </div>
+
+    <div class="form-outline">
+      <label class="form-label">Need an account? <a href="#" class="link-primary" id="link-sign-up">Sign Up</a></label>
+    </div>
+
   </form>
+
+  <!-- PASSWORD RESET FORM -->
+  <form class="bg-white  rounded-5 shadow-5-strong p-5" id="change-password">
+
+    <h3>Change Password</h3>
+
+    <div class="form-outline mb-4">
+      <label class="form-label">Old Password</label>
+      <input class="form-control" name="passwords[old]" type="password">
+    </div>
+
+    <div class="form-outline mb-4">
+      <label class="form-label">New Password</label>
+      <input class="form-control" name="passwords[new]" type="password">
+    </div>
+
+    <div class="form-outline">
+      <button type="button" class="close btn btn-light btn-lg btn-block">Cancel</button>
+      <button type="submit" class="btn btn-dark btn-lg btn-block">Submit</button>
+    </div>
+
+  </form>
+
+  <!-- BUTTONS SECTION -->
+  <section class="button-section">
 
   <!-- SIGN OUT BUTTON -->
-  <button class="btn btn-light" id="sign-out">Sign Out</button>
+      <button class="btn btn-light btn-lg" id="sign-out">Sign Out</button>
 
-  <!-- NEW GAME FORM -->
-  <form id="new-game">
-    <h3>New Game?</h3>
-    <button type="submit" class="btn btn-light">New Game</button>
-  </form>
+  <!-- NEW GAME BUTTON -->
+      <form id="new-game">
+        <button type="submit" class="btn btn-light btn-lg btn-block">New Game</button>
+      </form>
+
+  <!-- CHANGE PASSWORD BUTTON -->
+      <button class="btn btn-primary btn-lg btn-block" id="btn-change-password">Change Password</button>
+</section>
+
 
   <!-- GAME BOARD -->
   <section id="game-board">
