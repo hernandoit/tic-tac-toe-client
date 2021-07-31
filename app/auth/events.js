@@ -148,6 +148,7 @@ const onShowSignIn = () => {
   $('#game-board').hide()
   $('#new-game').hide()
   $('#change-password').hide()
+  $('#message').text('')
 }
 
 const onShowSignUp = () => {
@@ -156,6 +157,7 @@ const onShowSignUp = () => {
   $('#sign-out').hide()
   $('#game-board').hide()
   $('#new-game').hide()
+  $('#message').text('')
 }
 
 const onShowChangePassword = () => {
@@ -174,7 +176,13 @@ const onChangePassword = (e) => {
   const form = e.target
   const data = getFormFields(form)
 
-  api.changePassword(data)
+  const passwords = {
+    passwords: {
+      old: data.passwords.old,
+      new: data.passwords.new
+    }
+  }
+  api.changePassword(passwords)
     .then(ui.onChangePasswordSuccess)
     .catch(ui.onChangePasswordFailure)
 }

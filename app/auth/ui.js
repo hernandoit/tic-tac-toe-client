@@ -24,6 +24,7 @@ const onSignUpFailure = () => {
 const onSignInSuccess = (response) => {
   $('#message').text(`${response.user.email} is signed in`)
   store.token = response.user.token
+  store.password = response.password
   $('#sign-in').trigger('reset')
   $('#sign-in').hide()
   $('#sign-up').hide()
@@ -93,6 +94,8 @@ const onPlayGameFailure = () => {
 }
 // VERSION 2 LOGIC
 const onChangePasswordSuccess = (response) => {
+  $('#change-password').hide()
+  $('#sign-in').show()
   $('#message').text('Your password has been successfully changed, please login again!')
 }
 
