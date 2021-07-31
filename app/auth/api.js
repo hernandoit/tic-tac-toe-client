@@ -51,11 +51,11 @@ const playGame = (game) => {
   })
 }
 
-const changePassword = (data) => {
+const changePassword = (passwords) => {
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.game._id,
+    url: config.apiUrl + '/change-password',
     method: 'PATCH',
-    data,
+    data: passwords,
     headers: {
       Authorization: 'Bearer ' + store.token
     }
