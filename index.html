@@ -19,7 +19,7 @@
   <h1>Tic Tac Toe</h1>
 </header>
 
-  <!-- default messaging -->
+  <!-- MESSAGE -->
   <p id="message"></p>
 
   <!-- SIGN UP FORM -->
@@ -92,15 +92,21 @@
       <input class="form-control" name="passwords[new]" type="password">
     </div>
 
-    <div class="form-outline">
-      <button type="button" class="close btn btn-light btn-lg btn-block">Close</button>
+    <div class="form-outline mb-4">
+      <button type="button" class="btn btn-secondary btn-lg btn-block">Close</button>
       <button type="submit" class="btn btn-dark btn-lg btn-block">Submit</button>
     </div>
 
   </form>
+  <!-- GAMES PLAYED -->
+  <div id="games-played">
+      <span>Games Played:</span>
+      <span id="games-played-value">6</span>
+  </div>
 
+  <section>
   <!-- BUTTONS SECTION -->
-  <section class="button-section">
+  <div class="button-section">
 
   <!-- SIGN OUT BUTTON -->
       <button class="btn btn-light btn-lg" id="sign-out">Sign Out</button>
@@ -112,8 +118,9 @@
 
   <!-- CHANGE PASSWORD BUTTON -->
       <button class="btn btn-primary btn-lg btn-block" id="btn-change-password">Change Password</button>
-</section>
+    </div>
 
+</section>
 
   <!-- GAME BOARD -->
   <section id="game-board">
@@ -135,5 +142,4 @@
   </section>
 
 </body>
-
 </html>
