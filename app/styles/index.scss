@@ -4,7 +4,6 @@ h1 {
   font-family: 'Permanent Marker', cursive;
   font-size: 45px;
     color: #ffffff;
-
 }
 
 body {
@@ -25,10 +24,13 @@ p {
   color: #ffffff;
 }
 
+span {
+  color: #ffffff;
+}
+
 .button-section {
   display: flex;
   justify-content: center;
-  margin: 5px;
 }
 
 .div-box {
@@ -151,4 +153,14 @@ p {
 
 #bottom-right {
   margin: 10px 0 0 10px;
+}
+
+#sign-out,
+#new-game,
+#btn-change-password {
+  margin: 10px;
+}
+
+#games-played {
+margin: 20px;
 }
