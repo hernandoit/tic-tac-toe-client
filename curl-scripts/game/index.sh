@@ -2,6 +2,8 @@
 
  # development: 'https://tic-tac-toe-api-development.herokuapp.com'\
 
+# TOKEN="bacfdf0d8fa0c2dded63e1a667f31e90" sh curl-scripts/game/index.sh
+
 #!/bin/bash
 
 curl "https://tic-tac-toe-api-development.herokuapp.com/games" \
