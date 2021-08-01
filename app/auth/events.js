@@ -187,6 +187,26 @@ const onChangePassword = (e) => {
     .catch(ui.onChangePasswordFailure)
 }
 
+const onGamesPlayed = (e) => {
+  e.preventDefault()
+
+  const form = e.target
+  const data = getFormFields(form)
+
+  const game = {
+    game: {
+      cell: {
+        index: data.game.index,
+        value: data.game.player
+      },
+      over: data.game.over
+    }
+  }
+  api.gamesPlayed(game)
+    .then(ui.onGamesPlayedSuccess)
+    .catch(ui.onGamesPlayedFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -196,5 +216,6 @@ module.exports = {
   onShowSignIn,
   onShowSignUp,
   onShowChangePassword,
-  onChangePassword
+  onChangePassword,
+  onGamesPlayed
 }
