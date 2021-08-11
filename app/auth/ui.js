@@ -90,6 +90,8 @@ const onNewGameSuccess = (response) => {
   $('.div-box').html('')
   // clears message
   $('#message').text('')
+  // sets the visibility of the change password form
+  $('#change-password').hide()
   // Save the API response so you have access to the game ID and cells
   store.game = response.game
 }
