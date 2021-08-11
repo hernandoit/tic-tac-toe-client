@@ -140,10 +140,30 @@ const checkForWin = () => {
     $('#message').text('Draw!, Try Again!')
   }
 }
+
+const onChangePassword = (e) => {
+  e.preventDefault()
+
+  const form = e.target
+  const data = getFormFields(form)
+
+  const passwords = {
+    passwords: {
+      old: data.passwords.old,
+      new: data.passwords.new
+    }
+  }
+  api
+    .changePassword(passwords)
+    .then(ui.onChangePasswordSuccess)
+    .catch(ui.onChangePasswordFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
   onNewGame,
-  onPlayGame
+  onPlayGame,
+  onChangePassword
 }
