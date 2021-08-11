@@ -60,7 +60,7 @@ const onPlayGame = (e) => {
   const divBox = e.target
   // variable to store which div data-cell-index was clicked
   const cellIndex = $(divBox).data('box-index')
-  // logic to make player 'x' or 'o' based on a boleen value
+  // logic to make player 'x' or 'o' based on a boolean value
   const player = turn ? 'X' : 'O'
   // variable to store the game APIs cells
   const apiCells = store.game.cells
