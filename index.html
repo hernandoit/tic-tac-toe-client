@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+
+  <!-- NAV BAR -->
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" id="logo">
+        <h1>Tic Tac Toe</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" id="sign-in-nav">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="sign-up-nav">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="change-password-nav">Change Password</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="sign-out-nav">Sign Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- default messaging -->
+  <p id="message"></p>
+
+  <!-- SIGN UP FORM -->
+  <form class="bg-white  rounded-5 shadow-5-strong p-5" id="sign-up">
+
+    <h3>Sign Up</h3>
+    <div class="form-outline mb-4">
+      <label class="form-label">Email</label>
+      <input class="form-control" name="credentials[email]" type="email">
+    </div>
+
+    <div class="form-outline mb-4">
+      <label class="form-label">Password</label>
+      <input class="form-control" name="credentials[password]" type="password">
+    </div>
+
+    <div class="form-outline mb-4">
+      <label class="form-label">Password Confirmation</label>
+      <input class="form-control" name="credentials[password_confirmation]" type="password">
+    </div>
+
+    <button type="submit" class="btn btn-dark">Sign Up</button>
+  </form>
+
+  <!-- SIGN IN FORM -->
+  <form class="bg-white  rounded-5 shadow-5-strong p-5" id="sign-in">
+    <h3>Sign In</h3>
+    <div class="form-outline mb-4">
+      <label class="form-label">Email</label>
+      <input class="form-control" name="credentials[email]" type="email">
+    </div>
+    <div class="form-outline mb-4">
+
+      <label class="form-label">Password</label>
+      <input class="form-control" name="credentials[password]" type="password">
+    </div>
+    <button type="submit" class="btn btn-dark">Sign In</button>
+  </form>
+
+  <!-- CHANGE PASSWORD -->
+    <form class="bg-white  rounded-5 shadow-5-strong p-5" id="change-password">
+
+      <div>
+        <h3>Change Password</h3>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Old Password</label>
+        <input class="form-control" type="password" name="passwords[old]">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">New Password</label>
+        <input class="form-control" type="password" name="passwords[new]">
+      </div>
+
+      <input class="btn btn-dark" type="submit" value="Submit">
+
+    </form>
+
+    <!-- NEW GAME FORM -->
+  <form id="new-game">
+    <button type="submit" class="btn btn-light">New Game</button>
+  </form>
+
+  <!-- GAME BOARD -->
+  <section id="game-board">
+
+    <!-- top row -->
+    <div data-box-index="0" class="div-box" id="top-left"></div>
+    <div data-box-index="1" class="div-box" id="top-mid"></div>
+    <div data-box-index="2" class="div-box" id="top-right"></div>
+
+    <!-- middle row -->
+    <div data-box-index="3" class="div-box" id="mid-left"></div>
+    <div data-box-index="4" class="div-box" id="mid"></div>
+    <div data-box-index="5" class="div-box" id="mid-right"></div>
+
+    <!-- bottom row -->
+    <div data-box-index="6" class="div-box" id="bottom-left"></div>
+    <div data-box-index="7" class="div-box" id="bottom-mid"></div>
+    <div data-box-index="8" class="div-box" id="bottom-right"></div>
+  </section>
+
+</body>
+
+</html>
