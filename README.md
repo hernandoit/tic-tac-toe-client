@@ -101,6 +101,5 @@ This is a tic-tac-toe game using the SPA (single page application) methodology. 
    1. Unresolved issue where excessively clicking on an occupied box makes 'X' or 'O' a winner
    2. Would like to do all of the black diamond level 
 
-
 #### `Images`
 [Wire Frame](https://i.imgur.com/xikX6wt.png)

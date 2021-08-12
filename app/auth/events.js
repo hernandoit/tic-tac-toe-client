@@ -62,19 +62,18 @@ const onPlayGame = (e) => {
   const cellIndex = $(divBox).data('box-index')
   // logic to make player 'x' or 'o' based on a boolean value
   const player = turn ? 'X' : 'O'
-  // variable to store the game APIs cells
-  const apiCells = store.game.cells
-  // sets the game APIs cells with our click events players value
-  apiCells[cellIndex] = player
   // variable to check if a box has is empty
   const boxValue = $($('.div-box')[cellIndex]).text()
   // logic to stops the game
   if (store.game.over) return
   // conditional that checks if a box is empty
+
   if (boxValue) {
     // $('#message').text(`It's ${player}'s turn`)
     return
   }
+  // sets the game APIs cells with our click events players value
+  store.game.cells[cellIndex] = player
   // call back function to check for a winner
   checkForWin()
 
@@ -89,9 +88,7 @@ const onPlayGame = (e) => {
     }
   }
 
-  api.playGame(game)
-    .then(ui.onPlayGameSuccess)
-    .catch(ui.onPlayGameFailure)
+  api.playGame(game).then(ui.onPlayGameSuccess).catch(ui.onPlayGameFailure)
 
   // changes player from 'X' to 'O'
   turn = !turn
@@ -129,13 +126,16 @@ const checkForWin = () => {
       apiCells[winIndex[0]] === apiCells[winIndex[1]] &&
       apiCells[winIndex[1]] === apiCells[winIndex[2]]
     ) {
+      console.log(apiCells[winIndex[0]], apiCells[winIndex[1]], apiCells[winIndex[2]])
       store.game.over = true
+      $('#message').text(`Player ${player} has won!`)
+      return
     }
   }
-  if (store.game.over === true) {
-    $('#message').text(`Player ${player} has won!`)
-    return
-  }
+  // if (store.game.over === true) {
+  //   $('#message').text(`Player ${player} has won!`)
+  //   return
+  // }
   if (!apiCells.includes('')) {
     $('#message').text('Draw!, Try Again!')
   }
