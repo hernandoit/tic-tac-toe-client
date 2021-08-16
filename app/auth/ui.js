@@ -145,6 +145,25 @@ const onShowChangePassword = () => {
   $('#change-password').show()
 }
 
+const onGamesPlayedSuccess = (response) => {
+  const games = response.games
+
+  let gamesHtml = ''
+
+  games.forEach((game) => {
+    gamesHtml += `<tr>
+    <td>${game.owner}</td>
+    <td>${store.game.__v}</td>
+  </tr>`
+  })
+
+  $('#games-played').html(gamesHtml)
+}
+
+const onGamesPlayedFailure = () => {
+
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -161,5 +180,7 @@ module.exports = {
   onShowSignup,
   onShowSignin,
   onShowChangePassword,
-  onShowLogo
+  onShowLogo,
+  onGamesPlayedSuccess,
+  onGamesPlayedFailure
 }

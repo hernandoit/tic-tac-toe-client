@@ -16,7 +16,10 @@ $(() => {
   $('#logo').on('click', showEvents.onShowLogo)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#change-password-nav').on('click', showEvents.onShowChangePassword)
-  // set the default visible state of our logged in and game objects
+
+  $('#games-played').on('load', authEvents.onGamesPlayed)
+
+  // set the default visible state
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#sign-out-nav').hide()

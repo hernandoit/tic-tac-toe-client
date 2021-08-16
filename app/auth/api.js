@@ -61,11 +61,24 @@ const changePassword = (passwords) => {
     }
   })
 }
+
+const getGames = (game) => {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game._id,
+    method: 'GET',
+    data: game,
+    headers: {
+      Authorization: 'Bearer ' + store.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   newGame,
   playGame,
-  changePassword
+  changePassword,
+  getGames
 }

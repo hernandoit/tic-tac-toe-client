@@ -67,11 +67,7 @@ const onPlayGame = (e) => {
   // logic to stops the game
   if (store.game.over) return
   // conditional that checks if a box is empty
-
-  if (boxValue) {
-    // $('#message').text(`It's ${player}'s turn`)
-    return
-  }
+  if (boxValue) return
   // sets the game APIs cells with our click events players value
   store.game.cells[cellIndex] = player
   // call back function to check for a winner
@@ -98,6 +94,7 @@ const onPlayGame = (e) => {
 const checkForWin = () => {
   // logic to make player 'x' or 'o' based on a boleen value
   const player = turn ? 'X' : 'O'
+
   // variable to store the game APIs cells
   const apiCells = store.game.cells
   // variable to hold an array of winning indexes
@@ -126,16 +123,11 @@ const checkForWin = () => {
       apiCells[winIndex[0]] === apiCells[winIndex[1]] &&
       apiCells[winIndex[1]] === apiCells[winIndex[2]]
     ) {
-      console.log(apiCells[winIndex[0]], apiCells[winIndex[1]], apiCells[winIndex[2]])
       store.game.over = true
       $('#message').text(`Player ${player} has won!`)
       return
     }
   }
-  // if (store.game.over === true) {
-  //   $('#message').text(`Player ${player} has won!`)
-  //   return
-  // }
   if (!apiCells.includes('')) {
     $('#message').text('Draw!, Try Again!')
   }
@@ -159,11 +151,20 @@ const onChangePassword = (e) => {
     .catch(ui.onChangePasswordFailure)
 }
 
+const onGamesPlayed = (e) => {
+  e.preventDefault()
+
+  api.getGames(store.game)
+    .then(ui.onGamesPlayedSuccess)
+    .catch(ui.onGamesPlayedFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
   onNewGame,
   onPlayGame,
-  onChangePassword
+  onChangePassword,
+  onGamesPlayed
 }

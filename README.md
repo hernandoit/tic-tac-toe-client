@@ -98,8 +98,7 @@ This is a tic-tac-toe game using the SPA (single page application) methodology. 
 - jQuery
 
 #### `Unsolved Problems`
-   1. Unresolved issue where excessively clicking on an occupied box makes 'X' or 'O' a winner
-   2. Would like to do all of the black diamond level 
+   1. Would like to do all of the double black diamond level requirements
 
 #### `Images`
 [Wire Frame](https://i.imgur.com/xikX6wt.png)
