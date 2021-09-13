@@ -5,8 +5,8 @@ h1 {
 }
 
 body {
-  // background: #31343a;
-  // color: #ffffff;
+  background: #31343a;
+  /* color: #ffffff; */
   text-align: center;
 }
 
@@ -104,12 +104,4 @@ p{
 
 #bottom-right{
   margin: 10px 0 0 10px;
-}
-
-#new-game {
-margin-top: 30px;
-}
-#games-played {
-  width: 50%;
-  text-align: center;
 }
